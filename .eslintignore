@@ -1,0 +1,15 @@
+# Third party
+**/node_modules
+
+# Build products
+build/
+.out/
+
+# Not written by hand
+registerServiceWorker.js
+serviceWorker.js
+
+# No way to properly configure eslint for testing files so for now they are ignored
+**/__tests__
+
+setupTests.js
