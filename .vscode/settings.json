@@ -1,9 +1,16 @@
 {
     "editor.fontSize": 14,
-    "editor.formatOnSave": true,
     "editor.tabSize": 2,
     "editor.wordWrapColumn": 100,
     "eslint.format.enable": true,
     "eslint.run": "onSave",
-    "eslint.alwaysShowStatus": true
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.formatOnSave": false
+    },
+    "eslint.alwaysShowStatus": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.formatOnSaveMode": "modifications",
 }

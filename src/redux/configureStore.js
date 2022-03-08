@@ -1,78 +1,54 @@
-import { applyMiddleware, compose, createStore } from "redux"
-import persistCombineReducers from "redux-persist/lib/persistCombineReducers"
-import storage from "redux-persist/lib/storage"
-import thunk from "redux-thunk"
-import { connectRouter, routerMiddleware } from "connected-react-router"
-import logger from "redux-logger"
-import createFilter from "redux-persist-transform-filter"
-import clients from "../configure/clients"
-import apiClients from "./middleware/apiClients"
-import {
-  reducerName as languagesReducerName,
-  reducer as languagesReducer
-} from "./reducers/languages"
-import reducerRegistery from "./ReducerRegistery"
-import { version, name } from "../../package.json"
-import { formHandlerMiddleware } from "./middleware/formHandler"
+import { applyMiddleware, compose, createStore } from "redux";
+import createFilter from "redux-persist-transform-filter";
+import persistCombineReducers from "redux-persist/lib/persistCombineReducers";
+import storage from "redux-persist/lib/storage";
+import thunk from "redux-thunk";
 
-export const saveLanguageFilter = createFilter(languagesReducerName, [
-  "appLanguage"
-])
+import { formHandlerMiddleware } from "./middleware/formHandler";
+import { REDUCERS } from "./reducers";
+import apiClients from "./middleware/apiClients";
+import expertiseReducer from "./reducers/expertise";
+import languagesReducer from "./reducers/languages";
+import reducerRegistry from "./ReducerRegistry";
+import skillsReducer from "./reducers/skills";
 
-export const loadLanguageFilter = createFilter(languagesReducerName, null, [
-  "appLanguage"
-])
+import { isDevelopment } from "../utils/constants";
+import clients from "../config/clients";
+import packageFile from "../../package.json";
 
-const configureStore = (initialState = {}, history) => {
-  reducerRegistery.register("router", connectRouter(history))
-  reducerRegistery.register(languagesReducerName, languagesReducer)
+export const saveLanguageFilter = createFilter(REDUCERS.LANGUAGES, ["appLanguage"]);
+
+export const loadLanguageFilter = createFilter(REDUCERS.LANGUAGES, null, ["appLanguage"]);
+
+const configureStore = (initialState = {}) => {
+  reducerRegistry.register(REDUCERS.LANGUAGES, languagesReducer);
+  reducerRegistry.register(REDUCERS.SKILLS, skillsReducer);
+  reducerRegistry.register(REDUCERS.EXPERTISE, expertiseReducer);
 
   const storageConfig = {
-    key: name,
+    key: packageFile.name,
     storage,
-    whitelist: [languagesReducerName],
     transforms: [loadLanguageFilter],
-    version
-  }
+    version: packageFile.version,
+    whitelist: [REDUCERS.LANGUAGES],
+  };
 
-  const reducers = persistCombineReducers(
-    storageConfig,
-    reducerRegistery.getReducers()
-  )
+  const reducers = persistCombineReducers(storageConfig, reducerRegistry.getReducers());
 
-  const composeWithDevToolsExtension =
-    process.env.REACT_APP_ENV === "dev" &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-      serialize: true,
-      trace: true,
-      traceLimit: 25
-    })
-  const composeEnhancers =
-    typeof composeWithDevToolsExtension === "function"
-      ? composeWithDevToolsExtension
-      : compose
+  const { __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ } = globalThis || window;
 
-  const middlewares = []
-  middlewares.push(routerMiddleware(history))
-  middlewares.push(thunk)
-  middlewares.push(apiClients(clients))
-  middlewares.push(formHandlerMiddleware)
+  const composeWithDevToolsExtension = isDevelopment && __REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
-  if (
-    process.env.REACT_APP_ENV === "dev" &&
-    process.env.REACT_APP_REDUX_LOGER === "true"
-  ) {
-    middlewares.push(logger)
-  }
+  const composeEnhancers = typeof composeWithDevToolsExtension === "function" ? composeWithDevToolsExtension : compose;
 
-  const store = createStore(
-    reducers,
-    initialState,
-    composeEnhancers(applyMiddleware(...middlewares))
-  )
+  const middleware = [];
+  middleware.push(thunk);
+  middleware.push(apiClients(clients));
+  middleware.push(formHandlerMiddleware);
 
-  return store
-}
+  const store = createStore(reducers, initialState, composeEnhancers(applyMiddleware(...middleware)));
 
-export default configureStore
+  return store;
+};
+
+export default configureStore;

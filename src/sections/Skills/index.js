@@ -1,189 +1,120 @@
-import React from "react"
-import PropTypes from "prop-types"
-import uuid from "uuid"
-import { withTranslation } from "react-i18next"
+import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
 
-import flow from "lodash/flow"
-import orderBy from "lodash/orderBy"
-import chunk from "lodash/chunk"
-import filter from "lodash/filter"
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 
-import Typography from "@material-ui/core/Typography"
-import Container from "@material-ui/core/Container"
-import withStyles from "@material-ui/core/styles/withStyles"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import Grid from "@material-ui/core/Grid"
+import { removeSpecialCharactersWithUnderscore } from "../../utils";
+import { createLoadSkillsAction, selectIsLoading, selectLoadingError, selectSkills } from "../../redux/reducers/skills";
 
-import connect from "./connect"
-import style from "./style"
-import removeSpecialCharactersWithUnderscore from "../../utils"
+export default function Skills() {
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
 
-class Skills extends React.Component {
-  componentDidMount() {
-    const { loadSkills } = this.props
+  const isLoading = useSelector(selectIsLoading);
+  const skills = useSelector(selectSkills);
+  const loadingError = useSelector(selectLoadingError);
 
-    loadSkills()
-  }
-
-  marks = () => {
-    const data = []
+  const marks = () => {
+    const data = [];
     for (let index = 0; index <= 100; index += 20) {
       data.push({
         value: index,
-        label: index
-      })
+        label: index,
+      });
     }
-    return data
-  }
+    return data;
+  };
 
-  convertSkills = skills => {
-    const { t, classes } = this.props
-    let chunkData = orderBy(skills, ["order"], ["asc"])
-    chunkData = chunk(chunkData, 3)
-    return chunkData.map(data => {
-      return (
-        <Grid container spacing={3} key={uuid()}>
-          {data.map(skill => {
-            return (
-              <Grid item xs={12} sm={4} key={uuid()}>
-                <div className={classes.skillBar}>
-                  <Typography component="p">
-                    {t(removeSpecialCharactersWithUnderscore(skill.name))}
-                  </Typography>
-                  <Typography component="p">
-                    {`${skill.value}${t("%")}`}
-                  </Typography>
-                </div>
-              </Grid>
-            )
-          })}
-        </Grid>
-      )
-    })
-  }
+  useEffect(() => {
+    dispatch(createLoadSkillsAction());
+  }, []);
 
-  convertType = (category, data) => {
-    const { skills, t, classes } = this.props
-    const types = orderBy(data.types, ["order"], ["asc"])
-    return types.map(value => {
-      const skill = filter(skills.data, {
-        category,
-        subCategory: value.parent,
-        type: value.id
-      })
+  const convertSkills = (skills) => {
+    return skills.map((skill) => {
       return (
-        <div key={uuid()}>
-          <Grid container spacing={3} key={uuid()}>
-            <Grid item xs={12} sm={3}>
-              <Typography
-                component="h6"
-                variant="h6"
-                color="textPrimary"
-                gutterBottom
-                className={classes.sectionSubCateTypeTitle}
-              >
-                {t(removeSpecialCharactersWithUnderscore(value.name))}
-              </Typography>
-            </Grid>
-            <Grid item xs={12} sm={9}>
-              {this.convertSkills(skill)}
-            </Grid>
+        <Grid container spacing={3} key={`skill-${skill.name}`}>
+          <Grid item xs={12} sm={4}>
+            <Typography component="p">{t(removeSpecialCharactersWithUnderscore(skill.name))}</Typography>
+            <Typography component="p">{`${skill.value}${t("%")}`}</Typography>
           </Grid>
-        </div>
-      )
-    })
-  }
+        </Grid>
+      );
+    });
+  };
 
-  convertSubCategories = data => {
-    const { skills, t, classes } = this.props
-    const subCategories = orderBy(data.subCategories, ["order"], ["asc"])
-    return subCategories.map(value => {
-      const skill = filter(skills.data, {
-        category: data.id,
-        subCategory: value.id,
-        type: null
-      })
+  const convertType = (category, data) => {
+    const types = data?.types?.sort((val) => val.order);
+    return types?.map((value) => {
+      const skill = skills?.data?.filter((val) => {
+        return val.category === category && val.subCategory === value.parent && val.type === value.id;
+      });
       return (
-        <div key={uuid()}>
-          <Typography
-            component="h5"
-            variant="h5"
-            color="textPrimary"
-            gutterBottom
-            className={classes.sectionSubCateTitle}
-          >
-            {t(removeSpecialCharactersWithUnderscore(value.name))}
-          </Typography>
-          {this.convertSkills(skill)}
-          {this.convertType(data.id, value)}
-        </div>
-      )
-    })
-  }
-
-  convertCategories = () => {
-    const { classes, skills, t } = this.props
-    const data = orderBy(skills.categories, ["order"], ["asc"])
-    return data.map(value => {
-      const skill = filter(skills.data, {
-        category: value.id,
-        subCategory: null
-      })
-      return (
-        <Card className={classes.card} key={uuid()}>
-          <CardContent>
-            <Typography
-              component="h4"
-              variant="h4"
-              color="textPrimary"
-              gutterBottom
-              className={classes.sectionSubTitle}
-            >
+        <Grid container spacing={3} key={`type-${value.name}`}>
+          <Grid item xs={12} sm={3}>
+            <Typography component="h6" variant="h6" color="textPrimary" gutterBottom>
               {t(removeSpecialCharactersWithUnderscore(value.name))}
             </Typography>
-            {this.convertSkills(skill)}
-            {this.convertSubCategories(value)}
+          </Grid>
+          <Grid item xs={12} sm={9}>
+            {convertSkills(skill)}
+          </Grid>
+        </Grid>
+      );
+    });
+  };
+
+  const convertSubCategories = ({ subCategories, id }) => {
+    const sortedSubCategories = subCategories?.sort((val) => val.order);
+    return sortedSubCategories?.map((value) => {
+      const skill = skills?.data?.filter((val) => {
+        return val.category === id && val.subCategory === value.id && val.type === null;
+      });
+      return (
+        <div key={`subcat-${value.name}`}>
+          <Typography component="h5" variant="h5" color="textPrimary" gutterBottom>
+            {t(removeSpecialCharactersWithUnderscore(value.name))}
+          </Typography>
+          {convertSkills(skill)}
+          {convertType(id, value)}
+        </div>
+      );
+    });
+  };
+
+  const convertCategories = () => {
+    const { categories, data } = skills;
+    return categories?.map((category) => {
+      const skill = data.filter((val) => {
+        return val.category === category.id && val.subCategory === null;
+      });
+      return (
+        <Card key={`card-${category.name}`}>
+          <CardContent>
+            <Typography component="h4" variant="h4" color="textPrimary" gutterBottom>
+              {t(removeSpecialCharactersWithUnderscore(category.name))}
+            </Typography>
+            {convertSkills(skill)}
+            {convertSubCategories(category)}
           </CardContent>
         </Card>
-      )
-    })
-  }
+      );
+    });
+  };
 
-  render() {
-    const { classes, loading, loadingError, t } = this.props
-    return (
-      <Container component="main">
-        <div className={classes.skills}>
-          <Typography
-            component="h2"
-            variant="h2"
-            color="textPrimary"
-            gutterBottom
-            className={classes.sectionTitle}
-          >
-            {t("skills")}
-          </Typography>
-          <div>{!loading && this.convertCategories()}</div>
-          {loadingError}
-        </div>
-      </Container>
-    )
-  }
+  return (
+    <Container component="main">
+      <div>
+        <Typography component="h2" variant="h2" color="textPrimary" gutterBottom>
+          {t("skills")}
+        </Typography>
+        <div>{!isLoading && convertCategories()}</div>
+        {loadingError}
+      </div>
+    </Container>
+  );
 }
-
-Skills.propTypes = {
-  t: PropTypes.func.isRequired,
-  classes: PropTypes.object.isRequired,
-  loading: PropTypes.bool,
-  loadingError: PropTypes.string,
-  loadSkills: PropTypes.func.isRequired,
-  skills: PropTypes.object.isRequired
-}
-
-Skills.defaultProps = {
-  loading: false,
-  loadingError: ""
-}
-
-export default flow([connect, withStyles(style), withTranslation()])(Skills)

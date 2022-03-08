@@ -1,5 +1,5 @@
-import React from "react"
-import Loading from "./Loading"
+import React from "react";
+import Loading from "./Loading";
 
 export default {
   title: "Loading",
@@ -8,6 +8,6 @@ export default {
       <div>
         <Loading />
       </div>
-    )
-  }
-}
+    );
+  },
+};

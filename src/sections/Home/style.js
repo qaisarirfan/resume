@@ -1,43 +1,32 @@
-const styles = theme => ({
-  heroContent: {
-    padding: theme.spacing(8),
-    backgroundImage: "url(/images/javascript-background.jpg)",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPosition: "top center",
-    height: "100vh",
-    minHeight: "500px",
-    position: "relative",
-    display: "flex",
-    color: theme.palette.getContrastText(theme.palette.text.primary),
-    "& p": {
-      maxWidth: "700px",
-      margin: "auto",
-      color: "inherit",
-      zIndex: "1",
-      "& span": {
-        display: "inline-block",
-        paddingBottom: theme.spacing(2)
-      },
-      [theme.breakpoints.down("sm")]: {
-        textAlign: "left",
-      }
-    },
-    "&:before": {
-      content: '""',
-      background: "rgba(0, 0, 0, 0.8)",
-      position: "absolute",
-      top: "0",
-      bottom: "0",
-      left: "0",
-      right: "0",
-      zIndex: "0"
-    },
-    [theme.breakpoints.down("sm")]: {
-      height: "auto",
-      padding: theme.spacing(9, 1),
-    }
-  }
-})
+import styled from "@emotion/styled";
+import Typography from "@mui/material/Typography";
 
-export default styles
+export const Main = styled.main`
+  background-image: url("/images/javascript-background.jpg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  min-height: 500px;
+  position: relative;
+
+  :before {
+    background: rgba(0, 0, 0, 0.8);
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+`;
+
+export const StyledTypography = styled(Typography)`
+  color: ${({ theme }) => theme.palette.getContrastText(theme.palette.text.primary)};
+  margin: auto;
+  max-width: 700px;
+  position: relative;
+  z-index: 2;
+`;

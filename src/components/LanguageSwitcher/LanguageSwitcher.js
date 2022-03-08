@@ -1,36 +1,34 @@
-import React from "react"
-import PropTypes from "prop-types"
-import withStyles from "@material-ui/core/styles/withStyles"
-import TranslateIcon from "@material-ui/icons/Translate"
-import Typography from "@material-ui/core/Typography/Typography"
-import values from "lodash/values"
-import CheckIcon from "@material-ui/icons/Check"
-import Menu from "@material-ui/core/Menu"
-import MenuItem from "@material-ui/core/MenuItem"
-import Button from "../Button/Button"
-import styles from "./styles"
-import constants from "../../constants"
-import FlagIcon from "../FlagIcon/FlagIcon"
+import React from "react";
+import PropTypes from "prop-types";
+import withStyles from "@material-ui/core/styles/withStyles";
+import TranslateIcon from "@material-ui/icons/Translate";
+import Typography from "@material-ui/core/Typography/Typography";
+import values from "lodash/values";
+import CheckIcon from "@material-ui/icons/Check";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import Button from "../Button/Button";
+import styles from "./styles";
+import constants from "../../constants";
+import FlagIcon from "../FlagIcon/FlagIcon";
 
-const { languages } = constants
+const { languages } = constants;
 
 // LanguageSwitcher Component content
-const LanguageSwitcher = ({
-  classes, currentLanguage, handleListItemClick
-}) => {
-  const [anchorEl, setAnchorEl] = React.useState(null)
+const LanguageSwitcher = ({ classes, currentLanguage, handleListItemClick }) => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const isMenuOpen = Boolean(anchorEl)
+  const isMenuOpen = Boolean(anchorEl);
 
   const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
+    setAnchorEl(event.currentTarget);
+  };
 
   const handleMenuClose = () => {
-    setAnchorEl(null)
-  }
+    setAnchorEl(null);
+  };
 
-  const menuId = "primary-search-account-menu"
+  const menuId = "primary-search-account-menu";
 
   return (
     <div>
@@ -58,8 +56,8 @@ const LanguageSwitcher = ({
             button
             key={language.code}
             onClick={() => {
-              handleListItemClick(language.code)
-              handleMenuClose()
+              handleListItemClick(language.code);
+              handleMenuClose();
             }}
           >
             <FlagIcon code={language.flag} />
@@ -67,29 +65,25 @@ const LanguageSwitcher = ({
               {language.title}
             </Typography>
             {currentLanguage === language.code && (
-              <CheckIcon
-                width="24px"
-                height="24px"
-                className={classes.checkIcon}
-              />
+              <CheckIcon width="24px" height="24px" className={classes.checkIcon} />
             )}
           </MenuItem>
         ))}
       </Menu>
     </div>
-  )
-}
+  );
+};
 
 // LanguageSwitcher Proptypes
 LanguageSwitcher.propTypes = {
   classes: PropTypes.object.isRequired,
   currentLanguage: PropTypes.string,
-  handleListItemClick: PropTypes.func.isRequired
-}
+  handleListItemClick: PropTypes.func.isRequired,
+};
 
 // LanguageSwitcher Default props
 LanguageSwitcher.defaultProps = {
-  currentLanguage: "en"
-}
+  currentLanguage: "en",
+};
 
-export default withStyles(styles)(LanguageSwitcher)
+export default withStyles(styles)(LanguageSwitcher);

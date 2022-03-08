@@ -1,5 +1,5 @@
-import React from "react"
-import LanguageSwitcher from "./LanguageSwitcher"
+import React from "react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default {
   title: "LanguageSwitcher",
@@ -8,6 +8,6 @@ export default {
       <div>
         <LanguageSwitcher />
       </div>
-    )
-  }
-}
+    );
+  },
+};

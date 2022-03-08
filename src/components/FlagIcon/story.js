@@ -1,5 +1,5 @@
-import React from "react"
-import FlagIcon from "./FlagIcon"
+import React from "react";
+import FlagIcon from "./FlagIcon";
 
 export default {
   title: "FlagIcon",
@@ -8,6 +8,6 @@ export default {
       <div>
         <FlagIcon />
       </div>
-    )
-  }
-}
+    );
+  },
+};

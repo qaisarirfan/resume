@@ -12,20 +12,20 @@ const styles = (theme) => ({
     padding: `0 ${theme.spacing(1)}px`,
 
     "&.loading": {
-      display: "flex"
+      display: "flex",
     },
     "&.transparent": {
-      backgroundColor: "transparent"
-    }
+      backgroundColor: "transparent",
+    },
   },
   appicalLogo: {
     textAlign: "center",
-    marginBottom: "32px"
+    marginBottom: "32px",
   },
   loader: {
     width: "100%",
-    maxWidth: "350px"
-  }
-})
+    maxWidth: "350px",
+  },
+});
 
-export default styles
+export default styles;

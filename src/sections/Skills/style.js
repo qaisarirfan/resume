@@ -1,13 +1,13 @@
-import get from "lodash/get"
+import get from "lodash/get";
 
-const styles = theme => {
+const styles = (theme) => {
   return {
     card: {
       margin: 0,
-      padding: 0
+      padding: 0,
     },
     skills: {
-      padding: "50px 0"
+      padding: "50px 0",
     },
     sectionSubTitle: {
       fontSize: "20px",
@@ -26,8 +26,8 @@ const styles = theme => {
         left: "0",
         bottom: "0",
         height: "2px",
-        width: "100%"
-      }
+        width: "100%",
+      },
     },
     sectionSubCateTitle: {
       fontSize: "18px",
@@ -42,8 +42,8 @@ const styles = theme => {
         height: "1px",
         background: get(theme, "palette.secondary.main"),
         display: "flex",
-        marginLeft: "18px"
-      }
+        marginLeft: "18px",
+      },
     },
     sectionSubCateTypeTitle: {
       fontSize: "15px",
@@ -51,9 +51,9 @@ const styles = theme => {
     },
     skillBar: {
       display: "flex",
-      justifyContent: "space-between"
-    }
-  }
-}
+      justifyContent: "space-between",
+    },
+  };
+};
 
-export default styles
+export default styles;
