@@ -33,8 +33,8 @@ function Skills({ heading, skills }) {
 
 Skills.propTypes = {
   heading: PropTypes.string,
-  skills: PropTypes.shape(
-    PropTypes.arrayOf({
+  skills: PropTypes.arrayOf(
+    PropTypes.shape({
       title: PropTypes.string,
       level: PropTypes.number,
       order: PropTypes.number,

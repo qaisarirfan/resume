@@ -1,7 +1,5 @@
 import Head from "next/head";
 
-import Header from "../src/components/Header";
-
 import Panel from "../src/sections/Panel";
 import HomeSection from "../src/sections/Home";
 import SkillsSection from "../src/sections/Skills";

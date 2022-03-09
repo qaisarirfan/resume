@@ -14,8 +14,14 @@ const themeSetting = createTheme({
   ...theme,
   direction: languageIsRTL() ? "rtl" : "ltr",
 });
-const { __INITIAL_STATE__ } = globalThis || window;
-const store = configureStore(__INITIAL_STATE__);
+
+let initialState = {};
+if (typeof window !== "undefined") {
+  const { __INITIAL_STATE__ } = window;
+  initialState = __INITIAL_STATE__;
+}
+
+const store = configureStore(initialState);
 const persistor = persistStore(store);
 configureI18n();
 

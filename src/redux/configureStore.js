@@ -35,11 +35,13 @@ const configureStore = (initialState = {}) => {
 
   const reducers = persistCombineReducers(storageConfig, reducerRegistry.getReducers());
 
-  const { __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ } = globalThis || window;
+  let composeEnhancers = compose;
 
-  const composeWithDevToolsExtension = isDevelopment && __REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-
-  const composeEnhancers = typeof composeWithDevToolsExtension === "function" ? composeWithDevToolsExtension : compose;
+  if (typeof window !== "undefined") {
+    const { __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ } = window;
+    const composeWithDevToolsExtension = isDevelopment && __REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+    composeEnhancers = typeof composeWithDevToolsExtension === "function" ? composeWithDevToolsExtension : compose;
+  }
 
   const middleware = [];
   middleware.push(thunk);
