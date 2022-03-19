@@ -1,14 +1,17 @@
 const urls = {
   production: "/assets/data/",
-  development: "http://localhost:3000/assets/data/",
+  development: "/assets/data/",
 };
 
+export const baseURLVercel = process.env.NEXT_PUBLIC_VERCEL_URL;
 export const isDevelopment = process.env.NODE_ENV === "development";
 export const baseURL = isDevelopment ? urls.development : urls.production;
 
+const url = baseURLVercel ? `${baseURLVercel}/${baseURL}` : baseURL;
+
 export const constants = {
-  baseURL: baseURL,
-  apiURL: `${baseURL}/api`,
+  baseURL: url,
+  apiURL: `${url}/api`,
   googleMapsURL: "https://maps.googleapis.com/maps/api",
 
   languages: {
