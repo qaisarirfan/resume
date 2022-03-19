@@ -72,5 +72,11 @@
   "vanilla_javascript": "ونیلا جاوا اسکرپٹ ٪{{value}}",
   "version_control": "Version control",
   "web": "Web",
-  "wordpress": "{{value}}% WordPress"
+  "wordpress": "{{value}}% WordPress",
+  "settings": "Settings",
+  "mode": "Mode",
+  "light": "Light",
+  "system": "System",
+  "dark": "Dark",
+  "language": "Language"
 }
