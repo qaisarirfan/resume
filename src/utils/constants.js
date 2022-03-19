@@ -1,6 +1,6 @@
 const urls = {
   production: "/assets/data/",
-  development: "/assets/data/",
+  development: "http://localhost:3000/assets/data/",
 };
 
 export const isDevelopment = process.env.NODE_ENV === "development";

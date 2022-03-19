@@ -11,19 +11,22 @@ import expertiseReducer from "./reducers/expertise";
 import languagesReducer from "./reducers/languages";
 import reducerRegistry from "./ReducerRegistry";
 import skillsReducer from "./reducers/skills";
+import experienceReducer from "./reducers/experience/reducer";
 
 import { isDevelopment } from "../utils/constants";
 import clients from "../config/clients";
 import packageFile from "../../package.json";
+import { createWrapper } from "next-redux-wrapper";
 
 export const saveLanguageFilter = createFilter(REDUCERS.LANGUAGES, ["appLanguage"]);
 
 export const loadLanguageFilter = createFilter(REDUCERS.LANGUAGES, null, ["appLanguage"]);
 
 const configureStore = (initialState = {}) => {
+  reducerRegistry.register(REDUCERS.EXPERIENCE, experienceReducer);
+  reducerRegistry.register(REDUCERS.EXPERTISE, expertiseReducer);
   reducerRegistry.register(REDUCERS.LANGUAGES, languagesReducer);
   reducerRegistry.register(REDUCERS.SKILLS, skillsReducer);
-  reducerRegistry.register(REDUCERS.EXPERTISE, expertiseReducer);
 
   const storageConfig = {
     key: packageFile.name,
@@ -52,5 +55,7 @@ const configureStore = (initialState = {}) => {
 
   return store;
 };
+
+export const wrapper = createWrapper(configureStore, { debug: isDevelopment });
 
 export default configureStore;

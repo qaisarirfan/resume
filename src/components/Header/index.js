@@ -1,28 +1,35 @@
 import React from "react";
-import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
 import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import SettingsIcon from "@mui/icons-material/SettingsOutlined";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+import Tooltip from "@mui/material/Tooltip";
 
-export default function Header() {
+import AppSettingsDrawer from "../AppSettingsDrawer";
+
+export default function PrimarySearchAppBar() {
+  const [settingsOpen, setSettingsOpen] = React.useState(false);
+
   const { t } = useTranslation();
+
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <div>
-          <Image width={60} height={60} src="/images/profile-img.png" alt={t("name")} />
-        </div>
-        <div>
-          <Typography variant="h5" noWrap>
-            {t("name")}
-          </Typography>
-          <Typography variant="caption" noWrap>
-            {t("title")}
-          </Typography>
-        </div>
-      </Toolbar>
-    </AppBar>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <Box sx={{ flexGrow: 1 }} />
+          <Box>
+            <Tooltip title={t("appFrame.toggleSettings")} enterDelay={300}>
+              <IconButton onClick={() => setSettingsOpen(true)} sx={{ px: "8px" }}>
+                <SettingsIcon fontSize="small" />
+              </IconButton>
+            </Tooltip>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      <AppSettingsDrawer onClose={() => setSettingsOpen(false)} open={settingsOpen} />
+    </Box>
   );
 }

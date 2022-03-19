@@ -45,8 +45,10 @@ export const getCurrentLanguageCode = () => {
 };
 
 export function languageIsRTL() {
-  const { navigator } = globalThis || window;
-  return navigator && (navigator.language === "ar" || navigator.language === "ur");
+  if (typeof window !== "undefined") {
+    const { navigator } = window;
+    return navigator && (navigator.language === "ar" || navigator.language === "ur");
+  }
 }
 
 export default configureI18n;
