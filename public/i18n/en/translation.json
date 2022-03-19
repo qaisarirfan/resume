@@ -72,5 +72,11 @@
   "vanilla_javascript": "Vanilla JavaScript",
   "version_control": "Version control",
   "web": "Web",
-  "wordpress": "WordPress"
+  "wordpress": "WordPress",
+  "settings": "Settings",
+  "mode": "Mode",
+  "light": "Light",
+  "system": "System",
+  "dark": "Dark",
+  "language": "Language"
 }
