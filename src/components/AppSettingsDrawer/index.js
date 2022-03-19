@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import CloseIcon from "@mui/icons-material/Close";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
@@ -14,7 +14,6 @@ import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Typography from "@mui/material/Typography";
-import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Heading = styled(Typography)(({ theme }) => ({
   margin: "20px 0 10px",
@@ -36,10 +35,7 @@ const IconToggleButton = styled(ToggleButton)({
 
 function AppSettingsDrawer({ onClose, open }) {
   const { t } = useTranslation();
-  const theme = useTheme();
   const [mode, setMode] = React.useState(null);
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  const preferredMode = prefersDarkMode ? "dark" : "light";
 
   const handleChangeThemeMode = (event, paletteMode) => {
     if (paletteMode === null) {
