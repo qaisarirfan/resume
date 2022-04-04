@@ -21,7 +21,7 @@ export default function PrimarySearchAppBar() {
         <Toolbar>
           <Box sx={{ flexGrow: 1 }} />
           <Box>
-            <Tooltip title={t("appFrame.toggleSettings")} enterDelay={300}>
+            <Tooltip title={t("toggle_settings")} enterDelay={300}>
               <IconButton onClick={() => setSettingsOpen(true)} sx={{ px: "8px" }}>
                 <SettingsIcon fontSize="small" />
               </IconButton>
