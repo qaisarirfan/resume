@@ -8,10 +8,13 @@ export const removeSpecialCharactersWithUnderscore = (str) => {
   return str.replace(/[^A-Z0-9]+/gi, "_").toLowerCase();
 };
 
-export const toDuration = (startDate, endDate) => {
+export const durationInMilliseconds = (startDate, endDate) => {
   const start = DateTime.fromJSDate(startDate ? new Date(startDate) : new Date());
   const end = DateTime.fromJSDate(endDate ? new Date(endDate) : new Date());
-  const formatted = Interval.fromDateTimes(start, end).toDuration().valueOf();
-  console.log("formatted", formatted);
+  return Interval.fromDateTimes(start, end).toDuration().valueOf();
+};
+
+export const toDuration = (startDate, endDate) => {
+  const formatted = durationInMilliseconds(startDate, endDate);
   return humanizeDuration(formatted, { round: true, largest: 2 });
 };

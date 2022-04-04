@@ -1,4 +1,5 @@
 import React from "react";
+import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -6,7 +7,6 @@ import Head from "next/head";
 import persistStore from "redux-persist/lib/persistStore";
 
 import configureI18n, { languageIsRTL } from "../src/config/i18n";
-import { PersistGate } from "redux-persist/integration/react";
 import configureStore from "../src/redux/configureStore";
 import theme from "../src/themes";
 

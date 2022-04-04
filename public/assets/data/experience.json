@@ -1,22 +1,30 @@
 [
   {
+    "city": "Lahore",
+    "company_logo": "/images/arbisoft.jpg",
+    "company_name": "Arbisoft",
+    "description": "",
+    "end_date": "",
+    "job_title": "Senior Software Engineer - ReactJS/React Native",
+    "order": 3,
+    "start_date": "01 Dec 2020"
+  },
+  {
     "city": "Islamabad",
     "company_logo": "/images/arkhitech.jpg",
     "company_name": "Arkhitech",
     "description": "Working as a Senior Software Engineer - ReactJS and my duties include:\n\n1. Performing moderately complex product design, systems analysis and programming activities requiring research.\n2. Cultivating engineering best practices within the web group, and, in conjunction with other senior engineers, company-wide.\n3. Collaborating with other technical leaders to analyze complex feature requests and suggest implementation strategies.\n4. Estimate the time required to provide insight details to Business team\n5. Conducting unit testing (including mocking as needed) and integration testing on software.\n6. Mentoring junior engineers, and defining **Arkhitech** engineering standards.\n7. Ongoing design, development, and maintenance of the system.\n8. Reviewing the front end code of the application.\n9. Enhancing the look, functionality, and appearance of the application.\n10. Work Breakdown Structure for client \n11. Write well designed, testable, efficient code by using the best software development practices\n12. Determining the structure and design of web pages.\n13. Developing features to enhance the user experience.\n14. Striking a balance between functional and aesthetic design.\n15. Ensuring web design is optimized for smartphones.\n16. Building reusable code for future use.\n17. Optimizing web pages for maximum speed and scalability.\n18. Utilizing a variety of markup languages to write web pages.\n19. Maintaining brand consistency throughout the design\n20. Working knowledge of Agile/Scrum",
-    "duration": 68428800000,
-    "end_date": "31 Nov 2020",
+    "end_date": "30 Nov 2020",
     "job_title": "Senior Software Engineer - ReactJS",
     "order": 2,
-    "start_date": "01 Oct 2018"
+    "start_date": "08 Oct 2018"
   },
   {
     "city": "Islamabad",
     "company_logo": "/images/progos.jpg",
     "company_name": "PROGOS TECH (Pvt) Ltd.",
     "description": "Working for **PROGOS TECH** was another wonderful experience of my career. Learnt Wordpress, Magento and ReactJS Development in detail. It was at **PROGOS TECH** when I was given a chance to manage a project single-handed and prove my management abilities, and I was able to meet the deadline with a very less error rate.\n\n**Responsibilities**:\n- Front End Development, Markups with CSS, CSS, and Markups separately\n- Create quality mock-ups and prototypes on tight timelines.\n- Create cascading style sheets (CSS/CSS3) with/or not JavaScript that are consistent across all browsers and platforms.\n- Collaborate with other team members and stakeholders.\n- Optimize web-application for maximum speed and scalability.\n- Ensure the technical feasibility of UI/UX style.\n- Build reusable code and libraries for future use.\n- Stay up-to-date on emerging technologies.\n- Develop new user-facing features.\n- Single page web apps, JavaScript template's\n- AJAX request/response and manipulate data to Markup",
-    "duration": 142041600000,
-    "end_date": "31 Oct 2018",
+    "end_date": "05 Oct 2018",
     "job_title": "Frontend Developer",
     "order": 1,
     "start_date": "01 May 2014"
@@ -26,7 +34,6 @@
     "company_logo": "",
     "company_name": "Softiks",
     "description": "I started my professional career by working for **Softiks**. It was a great learning experience for me. Worked on many front-end related projects and was able to successfully deliver them all on time.\n\n**Responsibilities**:\n1.\tFront End Development, Markups with `CSS`, `CSS`, and Markups separately  \n2.\tCreate cascading style sheets `CSS` with/or not `JavaScript` that are consistent across all browsers and platforms.\n3.\tCollaborate with other team members and stakeholders.\n4.\tEnsure the technical feasibility of `UI/UX` designs.\n5.\tConverted `HTML` to `PHP` files.",
-    "duration": 97286400000,
     "end_date": "31 Jan 2014",
     "job_title": "Frontend Web Developer",
     "order": 0,
