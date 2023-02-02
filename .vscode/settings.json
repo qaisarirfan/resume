@@ -1,5 +1,4 @@
 {
-    "editor.fontSize": 14,
     "editor.tabSize": 2,
     "editor.wordWrapColumn": 100,
     "eslint.format.enable": true,
