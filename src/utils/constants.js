@@ -1,5 +1,5 @@
 const urls = {
-  production: "/assets/data/",
+  production: "./assets/data/",
   development: "/assets/data/",
 };
 
