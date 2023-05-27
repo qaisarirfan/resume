@@ -3,6 +3,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import Head from "next/head";
 import persistStore from "redux-persist/lib/persistStore";
+import PropTypes from "prop-types";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -39,19 +40,26 @@ function MyApp({ Component, pageProps }) {
     [prefersDarkMode]
   );
   return (
-    <>
-      <Provider store={store}>
-        <PersistGate persistor={persistor}></PersistGate>
-        <Head>
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
-        </Head>
-        <ThemeProvider theme={themeSetting}>
-          <CssBaseline />
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </Provider>
-    </>
+    <Provider store={store}>
+      <PersistGate persistor={persistor} />
+      <Head>
+        <meta content="initial-scale=1, width=device-width" name="viewport" />
+      </Head>
+      <ThemeProvider theme={themeSetting}>
+        <CssBaseline />
+        <Component {...pageProps}></Component>
+      </ThemeProvider>
+    </Provider>
   );
 }
+
+MyApp.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  pageProps: PropTypes.shape({}),
+};
+
+MyApp.defaultProps = {
+  pageProps: {},
+};
 
 export default MyApp;

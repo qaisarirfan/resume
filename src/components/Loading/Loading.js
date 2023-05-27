@@ -6,21 +6,23 @@ import Box from "@material-ui/core/Box";
 import clsx from "clsx";
 import styles from "./styles";
 
-// Loading Component content
-const Loading = ({ classes, loading, transparent }) => (
-  <Box component="div" className={clsx(classes.root, loading ? "loading" : "", transparent ? "transparent" : "")}>
-    {loading && <CircularProgress className={classes.loader} />}
-  </Box>
-);
+function Loading({ classes, loading, transparent }) {
+  return (
+    <Box className={clsx(classes.root, loading ? "loading" : "", transparent ? "transparent" : "")} component="div">
+      {loading ? <CircularProgress className={classes.loader} /> : null}
+    </Box>
+  );
+}
 
-// Loading Proptypes
 Loading.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.shape({
+    root: PropTypes.string,
+    loader: PropTypes.string,
+  }).isRequired,
   loading: PropTypes.bool,
   transparent: PropTypes.bool,
 };
 
-// Loading Default props
 Loading.defaultProps = {
   loading: true,
   transparent: false,

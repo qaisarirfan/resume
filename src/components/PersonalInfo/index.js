@@ -22,7 +22,7 @@ export default function InfoHeader() {
         </Box>
         <Box>
           <Typography>{t("linkedin_profile")}</Typography>
-          <a href="https://www.linkedin.com/in/qaisarirfan" target={"_blank"} rel="noreferrer">
+          <a href="https://www.linkedin.com/in/qaisarirfan" rel="noreferrer" target="_blank">
             https://www.linkedin.com/in/qaisarirfan
           </a>
         </Box>

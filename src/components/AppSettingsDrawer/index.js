@@ -49,19 +49,19 @@ function AppSettingsDrawer({ onClose, open }) {
 
   return (
     <Drawer
-      anchor="right"
-      onClose={onClose}
-      open={open}
       PaperProps={{
         elevation: 0,
         sx: { width: { xs: 310, sm: 360 }, borderRadius: "10px 0px 0px 10px" },
       }}
+      anchor="right"
+      onClose={onClose}
+      open={open}
     >
       <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", p: 2 }}>
-        <Typography variant="body1" fontWeight="500">
+        <Typography fontWeight="500" variant="body1">
           {t("settings")}
         </Typography>
-        <IconButton color="inherit" onClick={onClose} edge="end">
+        <IconButton color="inherit" edge="end" onClick={onClose}>
           <CloseIcon color="primary" fontSize="small" />
         </IconButton>
       </Box>
@@ -71,37 +71,27 @@ function AppSettingsDrawer({ onClose, open }) {
           {t("mode")}
         </Heading>
         <ToggleButtonGroup
-          exclusive
-          value={mode}
-          color="primary"
-          onChange={handleChangeThemeMode}
           aria-labelledby="settings-mode"
+          color="primary"
+          exclusive
           fullWidth
+          onChange={handleChangeThemeMode}
+          value={mode}
         >
-          <IconToggleButton
-            value="light"
-            aria-label={t("light")}
-            data-ga-event-category="settings"
-            data-ga-event-action="light"
-          >
+          <IconToggleButton aria-label={t("light")} data-ga-event-action="light" data-ga-event-category="settings" value="light">
             <LightModeIcon fontSize="small" />
             {t("light")}
           </IconToggleButton>
           <IconToggleButton
-            value="system"
             aria-label={t("system")}
-            data-ga-event-category="settings"
             data-ga-event-action="system"
+            data-ga-event-category="settings"
+            value="system"
           >
             <SettingsBrightnessIcon fontSize="small" />
             {t("system")}
           </IconToggleButton>
-          <IconToggleButton
-            value="dark"
-            aria-label={t("dark")}
-            data-ga-event-category="settings"
-            data-ga-event-action="dark"
-          >
+          <IconToggleButton aria-label={t("dark")} data-ga-event-action="dark" data-ga-event-category="settings" value="dark">
             <DarkModeOutlinedIcon fontSize="small" />
             {t("dark")}
           </IconToggleButton>
@@ -115,6 +105,10 @@ function AppSettingsDrawer({ onClose, open }) {
 AppSettingsDrawer.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool,
+};
+
+AppSettingsDrawer.defaultProps = {
+  open: false,
 };
 
 export default AppSettingsDrawer;

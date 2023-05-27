@@ -5,8 +5,8 @@ import Stack from "@mui/material/Stack";
 export default function Variants() {
   return (
     <Stack spacing={1}>
-      <Skeleton animation="wave" variant="text" width={300} height={40} />
-      <Skeleton animation="wave" variant="text" width={200} height={15} />
+      <Skeleton animation="wave" height={40} variant="text" width={300} />
+      <Skeleton animation="wave" height={15} variant="text" width={200} />
     </Stack>
   );
 }

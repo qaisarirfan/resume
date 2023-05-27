@@ -14,8 +14,7 @@ import FlagIcon from "../FlagIcon/FlagIcon";
 
 const { languages } = constants;
 
-// LanguageSwitcher Component content
-const LanguageSwitcher = ({ classes, currentLanguage, handleListItemClick }) => {
+function LanguageSwitcher({ classes, currentLanguage, handleListItemClick }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
@@ -33,11 +32,11 @@ const LanguageSwitcher = ({ classes, currentLanguage, handleListItemClick }) => 
   return (
     <div>
       <Button
-        onClick={handleProfileMenuOpen}
-        aria-label="account of current user"
         aria-controls={menuId}
         aria-haspopup="true"
+        aria-label="account of current user"
         color="inherit"
+        onClick={handleProfileMenuOpen}
       >
         <TranslateIcon />
         English
@@ -47,9 +46,9 @@ const LanguageSwitcher = ({ classes, currentLanguage, handleListItemClick }) => 
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         id={menuId}
         keepMounted
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
-        open={isMenuOpen}
         onClose={handleMenuClose}
+        open={isMenuOpen}
+        transformOrigin={{ vertical: "top", horizontal: "right" }}
       >
         {values(languages).map((language) => (
           <MenuItem
@@ -64,24 +63,22 @@ const LanguageSwitcher = ({ classes, currentLanguage, handleListItemClick }) => 
             <Typography color="inherit" variant="body2">
               {language.title}
             </Typography>
-            {currentLanguage === language.code && (
-              <CheckIcon width="24px" height="24px" className={classes.checkIcon} />
-            )}
+            {currentLanguage === language.code && <CheckIcon className={classes.checkIcon} height="24px" width="24px" />}
           </MenuItem>
         ))}
       </Menu>
     </div>
   );
-};
+}
 
-// LanguageSwitcher Proptypes
 LanguageSwitcher.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.shape({
+    checkIcon: PropTypes.string,
+  }).isRequired,
   currentLanguage: PropTypes.string,
   handleListItemClick: PropTypes.func.isRequired,
 };
 
-// LanguageSwitcher Default props
 LanguageSwitcher.defaultProps = {
   currentLanguage: "en",
 };

@@ -20,10 +20,10 @@ function Skills({ heading, skills }) {
                 <Typography>{skill.title}</Typography>
               </Box>
               <Box sx={{ minWidth: 35 }}>
-                <Typography variant="body2" color="text.secondary">{`${Math.round(skill.level)}%`}</Typography>
+                <Typography color="text.secondary" variant="body2">{`${Math.round(skill.level)}%`}</Typography>
               </Box>
             </Box>
-            <LinearProgress variant="determinate" value={skill.level} />
+            <LinearProgress value={skill.level} variant="determinate" />
           </Box>
         ))}
       </CardContent>

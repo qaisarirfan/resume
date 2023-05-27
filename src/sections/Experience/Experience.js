@@ -31,7 +31,7 @@ export default function Expertise() {
         <Shimmer />
       ) : (
         <>
-          <Typography component="h2" variant="h2" color="textPrimary" gutterBottom>
+          <Typography color="textPrimary" component="h2" gutterBottom variant="h2">
             {t("experience")}
           </Typography>
           <Typography>
@@ -47,14 +47,12 @@ export default function Expertise() {
           {experience.map((data) => (
             <div key={`experience-${data?.company_logo}`}>
               <Avatar src={data?.company_logo ? data?.company_logo : "/images/unknown.svg"} />
-              <Typography variant="h6" component="span">
+              <Typography component="span" variant="h6">
                 {data?.job_title}
               </Typography>
               <Typography>{data?.company_name}</Typography>
               <Typography>{toDuration(data?.start_date, data?.end_date)}</Typography>
-              <Typography>
-                {data?.start_date} - {data?.end_date}
-              </Typography>
+              <Typography>{[data?.start_date, "-", data?.end_date].join(" ")}</Typography>
               <ReactMarkdown>{data?.description}</ReactMarkdown>
             </div>
           ))}

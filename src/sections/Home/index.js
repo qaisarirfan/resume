@@ -9,7 +9,7 @@ import Container from "@mui/material/Container";
 import { createLoadExpertiseAction } from "../../redux/reducers/expertise";
 import { Main, StyledTypography } from "./style";
 
-const Home = () => {
+function Home() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -27,6 +27,6 @@ const Home = () => {
       </Container>
     </Main>
   );
-};
+}
 
 export default Home;

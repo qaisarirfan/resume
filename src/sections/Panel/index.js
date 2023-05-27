@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -26,11 +27,11 @@ function Panel({ children }) {
   return (
     <Box sx={{ display: "flex" }}>
       <StyledBox component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}>
-        <StyledDrawer variant="permanent" sx={{ display: { xs: "none", sm: "block" } }} open>
+        <StyledDrawer open sx={{ display: { xs: "none", sm: "block" } }} variant="permanent">
           <InfoHeader />
-          <Divider></Divider>
+          <Divider />
           <PersonalInfo />
-          <Divider></Divider>
+          <Divider />
           <Skills
             heading={t("hard_skills")}
             skills={[
@@ -39,7 +40,7 @@ function Panel({ children }) {
               { title: t("database_knowledge"), level: 80, order: 3 },
             ]}
           />
-          <Divider></Divider>
+          <Divider />
           <Skills
             heading={t("languages")}
             skills={[
@@ -48,7 +49,7 @@ function Panel({ children }) {
               { title: t("node_js"), level: 80, order: 3 },
             ]}
           />
-          <Divider></Divider>
+          <Divider />
           <Skills
             heading={t("soft_skill")}
             skills={[
@@ -65,5 +66,11 @@ function Panel({ children }) {
     </Box>
   );
 }
+
+Panel.propTypes = {
+  children: PropTypes.func.isRequired,
+};
+
+Panel.defaultProps = {};
 
 export default Panel;

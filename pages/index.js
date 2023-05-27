@@ -7,14 +7,14 @@ import Header from "../src/components/Header";
 import HomeSection from "../src/sections/Home";
 import Panel from "../src/sections/Panel";
 
-const Home = () => {
+function Home() {
   const { t } = useTranslation();
   return (
     <div>
       <Head>
         <title>{t("name")}</title>
-        <meta name="description" content={t("name")} />
-        <link rel="icon" href="/assets/icons/16px.png" />
+        <meta content={t("name")} name="description" />
+        <link href="/assets/icons/16px.png" rel="icon" />
       </Head>
       <Panel>
         <Header />
@@ -23,6 +23,6 @@ const Home = () => {
       </Panel>
     </div>
   );
-};
+}
 
 export default Home;

@@ -37,8 +37,8 @@ export default function Skills() {
   const convertSkills = (skills) => {
     return skills.map((skill) => {
       return (
-        <Grid container spacing={3} key={`skill-${skill.name}`}>
-          <Grid item xs={12} sm={4}>
+        <Grid container key={`skill-${skill.name}`} spacing={3}>
+          <Grid item sm={4} xs={12}>
             <Typography component="p">{t(removeSpecialCharactersWithUnderscore(skill.name))}</Typography>
             <Typography component="p">{`${skill.value}${t("%")}`}</Typography>
           </Grid>
@@ -54,13 +54,13 @@ export default function Skills() {
         return val.category === category && val.subCategory === value.parent && val.type === value.id;
       });
       return (
-        <Grid container spacing={3} key={`type-${value.name}`}>
-          <Grid item xs={12} sm={3}>
-            <Typography component="h6" variant="h6" color="textPrimary" gutterBottom>
+        <Grid container key={`type-${value.name}`} spacing={3}>
+          <Grid item sm={3} xs={12}>
+            <Typography color="textPrimary" component="h6" gutterBottom variant="h6">
               {t(removeSpecialCharactersWithUnderscore(value.name))}
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={9}>
+          <Grid item sm={9} xs={12}>
             {convertSkills(skill)}
           </Grid>
         </Grid>
@@ -76,7 +76,7 @@ export default function Skills() {
       });
       return (
         <div key={`subcat-${value.name}`}>
-          <Typography component="h5" variant="h5" color="textPrimary" gutterBottom>
+          <Typography color="textPrimary" component="h5" gutterBottom variant="h5">
             {t(removeSpecialCharactersWithUnderscore(value.name))}
           </Typography>
           {convertSkills(skill)}
@@ -95,7 +95,7 @@ export default function Skills() {
       return (
         <Card key={`card-${category.name}`}>
           <CardContent>
-            <Typography component="h4" variant="h4" color="textPrimary" gutterBottom>
+            <Typography color="textPrimary" component="h4" gutterBottom variant="h4">
               {t(removeSpecialCharactersWithUnderscore(category.name))}
             </Typography>
             {convertSkills(skill)}
@@ -109,7 +109,7 @@ export default function Skills() {
   return (
     <Container component="main">
       <div>
-        <Typography component="h2" variant="h2" color="textPrimary" gutterBottom>
+        <Typography color="textPrimary" component="h2" gutterBottom variant="h2">
           {t("skills")}
         </Typography>
         <div>{!isLoading && convertCategories()}</div>
