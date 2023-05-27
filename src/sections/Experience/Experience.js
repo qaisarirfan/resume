@@ -46,7 +46,7 @@ export default function Expertise() {
           </Typography>
           {experience.map((data) => (
             <div key={`experience-${data?.company_logo}`}>
-              <Avatar src={data?.company_logo ? data?.company_logo : "/images/unknown.svg"} />
+              <Avatar src={data?.company_logo ? data?.company_logo : "./images/unknown.svg"} />
               <Typography component="span" variant="h6">
                 {data?.job_title}
               </Typography>
