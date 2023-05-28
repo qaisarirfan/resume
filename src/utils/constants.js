@@ -17,11 +17,13 @@ export const constants = {
       code: "en",
       title: "English",
       flag: "en",
+      direction: "ltr",
     },
     ur: {
       code: "ur",
       title: "Urdu",
       flag: "pk",
+      direction: "rtl",
     },
   },
 };

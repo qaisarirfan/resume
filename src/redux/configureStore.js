@@ -1,28 +1,33 @@
 import { applyMiddleware, compose, createStore } from "redux";
+import { createWrapper } from "next-redux-wrapper";
 import createFilter from "redux-persist-transform-filter";
 import persistCombineReducers from "redux-persist/lib/persistCombineReducers";
 import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 
 import { formHandlerMiddleware } from "./middleware/formHandler";
-import { REDUCERS } from "./reducers";
 import apiClients from "./middleware/apiClients";
+
+import appearanceReducer from "./reducers/appearance";
+import experienceReducer from "./reducers/experience/reducer";
 import expertiseReducer from "./reducers/expertise";
 import languagesReducer from "./reducers/languages";
 import reducerRegistry from "./ReducerRegistry";
 import skillsReducer from "./reducers/skills";
-import experienceReducer from "./reducers/experience/reducer";
 
 import { isDevelopment } from "../utils/constants";
+import { REDUCERS } from "./reducers";
 import clients from "../config/clients";
 import packageFile from "../../package.json";
-import { createWrapper } from "next-redux-wrapper";
 
-export const saveLanguageFilter = createFilter(REDUCERS.LANGUAGES, ["appLanguage"]);
+const saveLanguageFilter = createFilter(REDUCERS.LANGUAGES, ["appLanguage"]);
+const loadLanguageFilter = createFilter(REDUCERS.LANGUAGES, null, ["appLanguage"]);
 
-export const loadLanguageFilter = createFilter(REDUCERS.LANGUAGES, null, ["appLanguage"]);
+const saveAppearanceFilter = createFilter(REDUCERS.APPEARANCE, ["mode"]);
+const loadAppearanceFilter = createFilter(REDUCERS.APPEARANCE, null, ["mode"]);
 
 const configureStore = (initialState = {}) => {
+  reducerRegistry.register(REDUCERS.APPEARANCE, appearanceReducer);
   reducerRegistry.register(REDUCERS.EXPERIENCE, experienceReducer);
   reducerRegistry.register(REDUCERS.EXPERTISE, expertiseReducer);
   reducerRegistry.register(REDUCERS.LANGUAGES, languagesReducer);
@@ -31,9 +36,9 @@ const configureStore = (initialState = {}) => {
   const storageConfig = {
     key: packageFile.name,
     storage,
-    transforms: [loadLanguageFilter],
+    transforms: [saveLanguageFilter, loadLanguageFilter, saveAppearanceFilter, loadAppearanceFilter],
     version: packageFile.version,
-    whitelist: [REDUCERS.LANGUAGES],
+    whitelist: [REDUCERS.LANGUAGES, REDUCERS.APPEARANCE],
   };
 
   const reducers = persistCombineReducers(storageConfig, reducerRegistry.getReducers());

@@ -25,14 +25,20 @@ const configureI18n = () =>
         console.log(lng, ns, `"${removeSpecialCharactersWithUnderscore(key)}": "${fallbackValue}"`);
         return key;
       },
+      detection: {
+        order: ["path", "localStorage", "htmlTag", "cookie"],
+        caches: ["localStorage", "cookie"],
+      },
     });
 
-export const changeLanguage = (code) => {
+export const changeLanguage = async (code) => {
   if (!code) {
-    i18n.changeLanguage(navigator ? navigator.language : "en");
+    await i18n.changeLanguage(navigator ? navigator.language : "en");
     return;
   }
-  i18n.changeLanguage(code);
+  await i18n.changeLanguage(code);
+  document.dir = i18n.dir();
+  document.body.dir = i18n.dir();
 };
 
 // Get the code for the current language / locale

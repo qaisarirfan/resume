@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import withStyles from "@material-ui/core/styles/withStyles";
+import clsx from "clsx";
+
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Box from "@material-ui/core/Box";
-import clsx from "clsx";
-import styles from "./styles";
 
 function Loading({ classes, loading, transparent }) {
   return (
@@ -28,4 +27,4 @@ Loading.defaultProps = {
   transparent: false,
 };
 
-export default withStyles(styles, { withTheme: true })(Loading);
+export default Loading;
