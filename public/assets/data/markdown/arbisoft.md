@@ -1,0 +1,9 @@
+- Collaborating with designers and other stakeholders to create a seamless user experience using React with Styled Components and ensuring that the design is pixel-perfect to the Figma designs provided.
+- Integrating RESTful APIs to provide enhanced functionality and user experience in the application and managing state with Redux and React Context API to ensure efficient and effective handling of data.
+Communicating effectively with clients and stakeholders by managing their expectations and providing suggestions for areas of improvement to ensure that the project meets their requirements.
+- Conduct unit testing to ensure that the application is free from bugs and errors and that it meets the required standard to deliver a robust final product.
+- Attending daily stand-ups to provide updates and communicate effectively with the team, including reviewing the code, ensuring that engineering standards are met, and mentoring junior engineers.
+- Conducting functional testing of units to ensure that the application is performing as expected, and implementing mobile responsive Figma designs in Next JS to ensure that the application is optimized for all devices.
+- Conducting API testing using Postman to ensure that APIs are functioning as expected, and reporting issues to clients regarding Designs and API endpoints to propose solutions to address them.
+Attending client stand-ups to provide updates and receive feedback to ensure that the project meets client requirements, contending interviews for JavaScript, and ReactJS developers to hire the right talent, and mentoring fresh grad hires to help them grow and develop their skills.
+- As a senior engineer, designing the architecture of the application to ensure that it is scalable and meets the requirements of the project, and leading the development of specific modules as a developmental lead to ensure that the project is delivered on time and to the required standard.

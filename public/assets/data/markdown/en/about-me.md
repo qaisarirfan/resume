@@ -1,0 +1,9 @@
+I am an experienced Frontend Developer with **__experience__** of experience in web development. I started my career as an HTML/CSS designer and gradually transitioned to learning Javascript and jQuery. I have worked on a variety of projects ranging from mobile sites to TV apps using different frameworks such as Magento, WordPress, Bootstrap, ReactJS, ElectronJS, and React Native. My experience includes working with front-end frameworks like Material UI, Ant Design, React-Bootstrap, Semantics UI, and Native Base.
+
+Currently, I am working as a ReactJS/React Native developer at Arbisoft, where I am a member of the Jobcase Web team. My responsibilities include developing different types of components for the front-end work of this team using the Nextjs framework.
+
+Throughout my career, I have worked on several projects, and my responsibilities have included developing the front end of websites and applications, creating high-quality mock-ups and prototypes, collaborating with team members and stakeholders, and ensuring that UI/UX designs were technically feasible. Additionally, I have optimized web applications for maximum speed and scalability, built reusable code and libraries for future use, and stayed up-to-date with emerging technologies.
+
+As a Senior Software Engineer - ReactJS at Arkhitech, I was responsible for conducting research, performing product design, systems analysis, and programming activities. I also collaborated with technical leaders to analyze complex feature requests, provided detailed insight to the Business team, conducted unit testing and integration testing, mentored junior engineers, established engineering standards, and continuously designed, developed, and maintained the system. I am well-versed in Agile/Scrum methodologies.
+
+I am passionate about creating visually appealing and responsive user interfaces and strive to ensure that the front end of websites and applications is accessible and user-friendly.

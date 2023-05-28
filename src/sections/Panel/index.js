@@ -68,7 +68,7 @@ function Panel({ children }) {
 }
 
 Panel.propTypes = {
-  children: PropTypes.func.isRequired,
+  children: PropTypes.arrayOf(PropTypes.shape).isRequired,
 };
 
 Panel.defaultProps = {};

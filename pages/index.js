@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import { useTranslation } from "react-i18next";
 
-import Experience from "../src/sections/Experience/Experience";
+import Experience from "../src/sections/Experience";
 import Header from "../src/components/Header";
 import HomeSection from "../src/sections/Home";
 import Panel from "../src/sections/Panel";

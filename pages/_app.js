@@ -30,15 +30,16 @@ configureI18n();
 
 function MyApp({ Component, pageProps }) {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  themeSetting = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: prefersDarkMode ? "dark" : "light",
-        },
-      }),
-    [prefersDarkMode]
-  );
+
+  themeSetting = React.useMemo(() => {
+    const theme = {
+      palette: {
+        // mode: prefersDarkMode ? "dark" : "light",
+      },
+    };
+    return createTheme(theme);
+  }, [prefersDarkMode]);
+
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor} />

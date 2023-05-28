@@ -1,8 +1,4 @@
-I started my professional career by working for **Softiks**. It was a great learning experience for me. Worked on many front-end related projects and was able to successfully deliver them all on time.
 
-**Responsibilities**:
-1.	Front End Development, Markups with `CSS`, `CSS`, and Markups separately  
-2.	Create cascading style sheets `CSS` with/or not `JavaScript` that are consistent across all browsers and platforms.
-3.	Collaborate with other team members and stakeholders.
-4.	Ensure the technical feasibility of `UI/UX` designs.
-5.	Converted `HTML` to `PHP` files.
+I commenced my professional journey with **Softiks Inc**. where I garnered invaluable experience in the field. My focus was primarily on front-end development, and I executed several projects with great success, delivering them all within the set timelines. During this time, I worked extensively with `HTML` and `CSS`, but I also took the initiative to learn `JavaScript` and `jQuery`. I applied this knowledge by developing mobile sites with `JQuery mobile`, which further broadened my skillset.
+
+As a front-end developer, my responsibilities included creating `CSS` and `CSS3` style sheets, which were compatible across all browsers and platforms, while ensuring the technical feasibility of UI/UX designs. I collaborated closely with my colleagues and stakeholders to meet project requirements and deliver high-quality results.

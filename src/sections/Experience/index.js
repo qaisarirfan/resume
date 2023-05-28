@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import humanizeDuration from "humanize-duration";
-import ReactMarkdown from "react-markdown";
 
 import Avatar from "@mui/material/Avatar";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
 import Shimmer from "./Shimmer";
+import MD from "./MD";
 
 import { getExperience } from "../../redux/reducers/experience/actions";
 import { experienceData, experienceLoader } from "../../redux/reducers/experience/selectors";
@@ -45,7 +45,7 @@ export default function Expertise() {
               : null}
           </Typography>
           {experience.map((data) => (
-            <div key={`experience-${data?.company_logo}`}>
+            <div key={`experience-${data?.id}`}>
               <Avatar src={data?.company_logo ? data?.company_logo : "./images/unknown.svg"} />
               <Typography component="span" variant="h6">
                 {data?.job_title}
@@ -53,7 +53,7 @@ export default function Expertise() {
               <Typography>{data?.company_name}</Typography>
               <Typography>{toDuration(data?.start_date, data?.end_date)}</Typography>
               <Typography>{[data?.start_date, "-", data?.end_date].join(" ")}</Typography>
-              <ReactMarkdown>{data?.description}</ReactMarkdown>
+              <MD id={data?.id} />
             </div>
           ))}
         </>

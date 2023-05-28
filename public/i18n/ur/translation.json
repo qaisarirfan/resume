@@ -2,7 +2,6 @@
   "_and_custom_components": "{{value}}% ...and custom components",
   "_and_custom_frameworks": "{{value}}% ...and custom frameworks",
   "%": "٪",
-  "about": "I'm a Senior Frontend Developer, with {{experience}} of experience in the industry, who understands and manages the user interface according to the users' needs and the best of the experience to be given. I work with Javascript, specifically on ReactJS for web applications, React Native for mobile apps, and ElectronJS for desktop applications. I keep myself up-to-date with the latest Javascript APIs, tools, and technologies.",
   "animation": "{{value}}% Animation",
   "ant_design": "{{value}}% Ant Design",
   "api_integrations": "{{value}}% API Integrations",

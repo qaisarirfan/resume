@@ -1,20 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Interval } from "luxon";
 import { useDispatch } from "react-redux";
-import { useTranslation } from "react-i18next";
 import humanizeDuration from "humanize-duration";
+import ReactMarkdown from "react-markdown";
 
 import Container from "@mui/material/Container";
 
 import { createLoadExpertiseAction } from "../../redux/reducers/expertise";
-import { Main, StyledTypography } from "./style";
+
+import clients from "../../config/clients";
+
+import { Main } from "./style";
 
 function Home() {
   const dispatch = useDispatch();
-  const { t } = useTranslation();
+
+  const [description, setDescription] = useState(null);
+
+  const getAboutMe = async () => {
+    const response = await clients.default.client.get(`/markdown/en/about-me.md`);
+    setDescription(response.data);
+  };
 
   useEffect(() => {
     dispatch(createLoadExpertiseAction());
+    getAboutMe();
   }, []);
 
   const totalDuration = Interval.fromDateTimes(new Date("01 Jan 2011"), new Date()).toDuration().valueOf();
@@ -23,7 +33,7 @@ function Home() {
   return (
     <Main>
       <Container>
-        <StyledTypography>{t("about", { experience: formatted })}</StyledTypography>
+        <ReactMarkdown>{description?.replace("__experience__", formatted)}</ReactMarkdown>
       </Container>
     </Main>
   );
