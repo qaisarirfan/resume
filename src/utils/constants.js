@@ -3,6 +3,7 @@ const urls = {
   development: "/assets/data/",
 };
 
+// eslint-disable-next-line no-undef
 export const isDevelopment = process.env.NODE_ENV === "development";
 export const baseURL = isDevelopment ? urls.development : urls.production;
 

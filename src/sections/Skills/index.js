@@ -19,16 +19,16 @@ export default function Skills() {
   const skills = useSelector(selectSkills);
   const loadingError = useSelector(selectLoadingError);
 
-  const marks = () => {
-    const data = [];
-    for (let index = 0; index <= 100; index += 20) {
-      data.push({
-        value: index,
-        label: index,
-      });
-    }
-    return data;
-  };
+  // const marks = () => {
+  //   const data = [];
+  //   for (let index = 0; index <= 100; index += 20) {
+  //     data.push({
+  //       value: index,
+  //       label: index,
+  //     });
+  //   }
+  //   return data;
+  // };
 
   useEffect(() => {
     dispatch(createLoadSkillsAction());
