@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 
 import Box from "@mui/material/Box";
 import CloseIcon from "@mui/icons-material/Close";
@@ -9,10 +9,10 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 
-import Appearance from "../../features/Appearance";
-import LanguageSwitcher from "../../features/LanguageSwitcher";
+import Appearance from "@src/features/Appearance";
+import LanguageSwitcher from "@src/features//LanguageSwitcher";
 
-function AppSettingsDrawer({ onClose, open }) {
+export default function AppSettingsDrawer({ onClose, open }) {
   const { t } = useTranslation();
 
   return (
@@ -34,7 +34,7 @@ function AppSettingsDrawer({ onClose, open }) {
         </IconButton>
       </Box>
       <Divider />
-      <Appearance></Appearance>
+      <Appearance />
       <LanguageSwitcher />
     </Drawer>
   );
@@ -48,5 +48,3 @@ AppSettingsDrawer.propTypes = {
 AppSettingsDrawer.defaultProps = {
   open: false,
 };
-
-export default AppSettingsDrawer;

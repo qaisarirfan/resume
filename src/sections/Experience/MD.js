@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 
 import clients from "../../config/clients";
 
-function MD({ id }) {
+export default function Md({ id }) {
   const [description, setDescription] = useState(null);
 
   const getDescription = async () => {
@@ -19,12 +19,10 @@ function MD({ id }) {
   return <ReactMarkdown>{description}</ReactMarkdown>;
 }
 
-MD.propTypes = {
+Md.propTypes = {
   id: PropTypes.string,
 };
 
-MD.defaultProps = {
+Md.defaultProps = {
   id: null,
 };
-
-export default MD;

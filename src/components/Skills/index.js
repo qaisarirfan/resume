@@ -1,22 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 import LinearProgress from "@mui/material/LinearProgress";
+import Typography from "@mui/material/Typography";
 
-function Skills({ heading, skills }) {
-  const data = skills.sort((a, b) => a.order - b.order);
+export default function Skills({ heading, skills }) {
+  const data = skills.sort((aValue, bValue) => aValue.order - bValue.order);
   return (
     <Card>
       <CardContent>
         <Typography gutterBottom>{heading}</Typography>
         {data.map((skill) => (
           <Box key={`skill-${skill.level}`}>
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Box sx={{ width: "100%", mr: 1 }}>
+            <Box sx={{ alignItems: "center", display: "flex" }}>
+              <Box sx={{ mr: 1, width: "100%" }}>
                 <Typography>{skill.title}</Typography>
               </Box>
               <Box sx={{ minWidth: 35 }}>
@@ -35,9 +35,9 @@ Skills.propTypes = {
   heading: PropTypes.string,
   skills: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string,
       level: PropTypes.number,
       order: PropTypes.number,
+      title: PropTypes.string,
     })
   ),
 };
@@ -46,5 +46,3 @@ Skills.defaultProps = {
   heading: null,
   skills: [],
 };
-
-export default Skills;

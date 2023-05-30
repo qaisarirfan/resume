@@ -26,13 +26,16 @@ const loadLanguageFilter = createFilter(REDUCERS.LANGUAGES, null, ["appLanguage"
 const saveAppearanceFilter = createFilter(REDUCERS.APPEARANCE, ["mode"]);
 const loadAppearanceFilter = createFilter(REDUCERS.APPEARANCE, null, ["mode"]);
 
-const configureStore = (initialState = {}) => {
+const getReducers = () => {
   reducerRegistry.register(REDUCERS.APPEARANCE, appearanceReducer);
   reducerRegistry.register(REDUCERS.EXPERIENCE, experienceReducer);
   reducerRegistry.register(REDUCERS.EXPERTISE, expertiseReducer);
   reducerRegistry.register(REDUCERS.LANGUAGES, languagesReducer);
   reducerRegistry.register(REDUCERS.SKILLS, skillsReducer);
+  return reducerRegistry.getReducers();
+};
 
+const configureStore = (initialState = {}) => {
   const storageConfig = {
     key: packageFile.name,
     storage,
@@ -41,7 +44,7 @@ const configureStore = (initialState = {}) => {
     whitelist: [REDUCERS.LANGUAGES, REDUCERS.APPEARANCE],
   };
 
-  const reducers = persistCombineReducers(storageConfig, reducerRegistry.getReducers());
+  const reducers = persistCombineReducers(storageConfig, getReducers());
 
   let composeEnhancers = compose;
 

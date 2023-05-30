@@ -9,29 +9,26 @@ import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Typography from "@mui/material/Typography";
-import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Heading = styled(Typography)(({ theme }) => ({
-  margin: "20px 0 10px",
   color: theme.palette.grey[600],
-  fontWeight: 700,
   fontSize: theme.typography.pxToRem(11),
-  textTransform: "uppercase",
+  fontWeight: 700,
   letterSpacing: ".08rem",
+  margin: "20px 0 10px",
+  textTransform: "uppercase",
 }));
 
 const IconToggleButton = styled(ToggleButton)({
-  display: "flex",
-  justifyContent: "center",
-  width: "100%",
   "& > *": {
     marginRight: "8px",
   },
+  display: "flex",
+  justifyContent: "center",
+  width: "100%",
 });
 
-function Appearance() {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-
+export default function Appearance() {
   const { t } = useTranslation();
   const [mode, setMode] = React.useState(null);
 
@@ -42,8 +39,6 @@ function Appearance() {
 
     setMode(paletteMode);
   };
-
-  console.log(mode);
 
   return (
     <Box sx={{ pl: 2, pr: 2 }}>
@@ -56,7 +51,7 @@ function Appearance() {
         exclusive
         fullWidth
         onChange={handleChangeThemeMode}
-        value={prefersDarkMode ? "dark" : "light"}
+        value={mode}
       >
         <IconToggleButton aria-label={t("light")} data-ga-event-action="light" data-ga-event-category="settings" value="light">
           <LightModeIcon fontSize="small" />
@@ -74,9 +69,3 @@ function Appearance() {
     </Box>
   );
 }
-
-Appearance.propTypes = {};
-
-Appearance.defaultProps = {};
-
-export default Appearance;

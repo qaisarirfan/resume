@@ -1,7 +1,6 @@
-import { ERROR, LOADED, LOADING } from "../../middleware/actions";
-import { EXPERIENCE } from "./types";
-
-import { createReducer } from "../../utility";
+import { createReducer } from "@src/redux/utility";
+import { ERROR, LOADED, LOADING } from "@src/redux/middleware/actions";
+import { EXPERIENCE } from "@src/redux/reducers/experience/types";
 
 const initialState = {
   data: [],
@@ -14,12 +13,11 @@ const reducers = {
     return { ...state, isLoading: true, loadingError: null };
   },
   [EXPERIENCE + LOADED](state, payload) {
-    console.log("payload", payload);
     return {
       ...state,
+      data: payload.result,
       isLoading: false,
       loadingError: null,
-      data: payload.result,
     };
   },
   [EXPERIENCE + ERROR](state, payload) {

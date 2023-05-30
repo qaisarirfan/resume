@@ -1,29 +1,22 @@
-import { createActionName, createReducer } from "../../utility";
-import { ERROR, LOADED, LOADING } from "../../middleware/actions";
-import { REDUCERS } from "..";
+import { createActionName, createReducer } from "@src/redux/utility";
+import { ERROR, LOADED, LOADING } from "@src/redux/middleware/actions";
+import { REDUCERS } from "@src/redux/reducers";
 
-// Required variables
 const initialState = {
   data: [],
   isLoading: false,
   loadingError: null,
 };
 
-// Actions
 export const EXPERTISE = createActionName(REDUCERS.EXPERTISE, "EXPERTISE");
 
-// Action creators
-export function createLoadExpertiseAction() {
+export const createLoadExpertiseAction = () => {
   return {
+    request: { method: "get", url: "expertise.json" },
     type: EXPERTISE,
-    request: {
-      method: "get",
-      url: "expertise.json",
-    },
   };
-}
+};
 
-// Selectors
 export const selectLanguages = (state) => state[REDUCERS.EXPERTISE]?.data;
 export const selectSelectedLanguage = (state) => {
   const languages = selectLanguages(state);
@@ -34,7 +27,6 @@ export const selectIsLoading = (state) => state[REDUCERS.EXPERTISE]?.isLoading;
 export const selectLoadingError = (state) => state[REDUCERS.EXPERTISE]?.loadingError;
 export const selectAppLanguage = (state) => state[REDUCERS.EXPERTISE]?.appLanguage;
 
-// Reducer
 const reducers = {
   [EXPERTISE + LOADING](state) {
     return { ...state, isLoading: true, loadingError: null };
@@ -42,9 +34,9 @@ const reducers = {
   [EXPERTISE + LOADED](state, payload) {
     return {
       ...state,
+      data: payload.result,
       isLoading: false,
       loadingError: null,
-      data: payload.result,
     };
   },
   [EXPERTISE + ERROR](state, payload) {

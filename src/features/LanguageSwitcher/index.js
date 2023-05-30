@@ -7,12 +7,13 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Typography from "@mui/material/Typography";
 
-import constants from "../../utils/constants";
-import { setAppLanguageAction, selectAppLanguage } from "../../redux/reducers/languages";
+import { selectAppLanguage, setAppLanguageAction } from "@src/redux/reducers/languages";
+
+import constants from "@src/utils/constants";
 
 const { languages } = constants;
 
-function LanguageSwitcher() {
+export default function LanguageSwitcher() {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
@@ -26,8 +27,8 @@ function LanguageSwitcher() {
     <Box sx={{ pl: 2, pr: 2 }}>
       <Typography gutterBottom>{t("language")}</Typography>
       <ToggleButtonGroup
-        color="primary"
         aria-label="languages"
+        color="primary"
         exclusive
         fullWidth
         onChange={onChangeHandler}
@@ -42,5 +43,3 @@ function LanguageSwitcher() {
     </Box>
   );
 }
-
-export default LanguageSwitcher;

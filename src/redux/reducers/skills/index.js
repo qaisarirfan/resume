@@ -1,34 +1,26 @@
-import { createActionName, createReducer } from "../../utility";
-import { ERROR, LOADED, LOADING } from "../../middleware/actions";
-import { REDUCERS } from "..";
+import { createActionName, createReducer } from "@src/redux/utility";
+import { ERROR, LOADED, LOADING } from "@src/redux/middleware/actions";
+import { REDUCERS } from "@src/redux/reducers";
 
-// Required variables
 const initialState = {
   data: [],
   isLoading: false,
   loadingError: null,
 };
 
-// Actions
 export const SKILLS = createActionName(REDUCERS.SKILLS, "SKILLS");
 
-// Action creators
-export function createLoadSkillsAction() {
+export const createLoadSkillsAction = () => {
   return {
+    request: { method: "get", url: "skills.json" },
     type: SKILLS,
-    request: {
-      method: "get",
-      url: "skills.json",
-    },
   };
-}
+};
 
-// Selectors
 export const selectSkills = (state) => state[REDUCERS.SKILLS]?.data;
 export const selectIsLoading = (state) => state[REDUCERS.SKILLS]?.isLoading;
 export const selectLoadingError = (state) => state[REDUCERS.SKILLS]?.loadingError;
 
-// Reducer
 const reducers = {
   [SKILLS + LOADING](state) {
     return { ...state, isLoading: true, loadingError: null };
@@ -36,9 +28,9 @@ const reducers = {
   [SKILLS + LOADED](state, payload) {
     return {
       ...state,
+      data: payload.result,
       isLoading: false,
       loadingError: null,
-      data: payload.result,
     };
   },
   [SKILLS + ERROR](state, payload) {

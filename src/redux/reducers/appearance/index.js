@@ -1,6 +1,5 @@
-import { createActionName, createReducer } from "../../utility";
-
-import { REDUCERS } from "..";
+import { createActionName, createReducer } from "@src/redux/utility";
+import { REDUCERS } from "@src/redux/reducers";
 
 const initialState = {
   mode: "light",
@@ -8,12 +7,12 @@ const initialState = {
 
 export const MODE = createActionName(REDUCERS.APPEARANCE, "MODE");
 
-export function setAppearanceMode(code) {
+export const setAppearanceMode = (code) => {
   return {
-    type: MODE,
     payload: code,
+    type: MODE,
   };
-}
+};
 
 export const selectAppearanceMode = (state) => state[REDUCERS.APPEARANCE]?.mode;
 

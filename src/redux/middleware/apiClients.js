@@ -1,6 +1,6 @@
-import { LOADING, LOADED, ERROR } from "./actions";
+import { ERROR, LOADED, LOADING } from "@src/redux/middleware/actions";
 
-const apiClients = (clients) => (store) => (next) => (action) => {
+export default (clients) => (store) => (next) => (action) => {
   if (!action || !action.request) {
     return next(action);
   }
@@ -13,15 +13,7 @@ const apiClients = (clients) => (store) => (next) => (action) => {
 
   const addTokenToRequest = (state, request) => {
     const authToken = null;
-    return authToken
-      ? {
-          ...request,
-          headers: {
-            ...(request.headers || null),
-            Authorization: `Bearer ${authToken}`,
-          },
-        }
-      : request;
+    return authToken ? { ...request, headers: { ...(request.headers || null), Authorization: `Bearer ${authToken}` } } : request;
   };
 
   const clientName = action.client || "default";
@@ -34,7 +26,7 @@ const apiClients = (clients) => (store) => (next) => (action) => {
   const request = addTokenToRequest(store.getState(), action.request);
   return clients[clientName].client.request(request).then(
     (result) => {
-      const payload = { result: result?.data, originalPayload: action?.payload };
+      const payload = { originalPayload: action?.payload, result: result?.data };
       next(makeAction(LOADED, { payload }));
       if (action.callback) {
         const { dispatch, getState } = store;
@@ -44,11 +36,9 @@ const apiClients = (clients) => (store) => (next) => (action) => {
     (error) => {
       next(
         makeAction(ERROR, {
-          payload: { result: error, originalPayload: action.payload },
+          payload: { originalPayload: action.payload, result: error },
         })
       );
     }
   );
 };
-
-export default apiClients;

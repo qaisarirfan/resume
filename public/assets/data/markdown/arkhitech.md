@@ -1,22 +1,9 @@
-Working as a Senior Software Engineer - ReactJS and my duties include:
+As a Senior Software Engineer at Arkhitech, I gained experience in ReactJS, ElectronJS for desktop applications, and React Native for mobile apps. I also used various front-end frameworks for ReactJS like Material UI, Ant Design, React-Bootstrap, and Semantics UI. For React Native, I worked with the Native Base framework.
 
-1. Performing moderately complex product design, systems analysis and programming activities requiring research.
-2. Cultivating engineering best practices within the web group, and, in conjunction with other senior engineers, company-wide.
-3. Collaborating with other technical leaders to analyze complex feature requests and suggest implementation strategies.
-4. Estimate the time required to provide insight details to Business team
-5. Conducting unit testing (including mocking as needed) and integration testing on software.
-6. Mentoring junior engineers, and defining **Arkhitech** engineering standards.
-7. Ongoing design, development, and maintenance of the system.
-8. Reviewing the front end code of the application.
-9. Enhancing the look, functionality, and appearance of the application.
-10. Work Breakdown Structure for client 
-11. Write well designed, testable, efficient code by using the best software development practices
-12. Determining the structure and design of web pages.
-13. Developing features to enhance the user experience.
-14. Striking a balance between functional and aesthetic design.
-15. Ensuring web design is optimized for smartphones.
-16. Building reusable code for future use.
-17. Optimizing web pages for maximum speed and scalability.
-18. Utilizing a variety of markup languages to write web pages.
-19. Maintaining brand consistency throughout the design
-20. Working knowledge of Agile/Scrum
+My responsibilities included designing and developing complex features, collaborating with technical leaders to analyze requests and suggest implementation strategies, mentoring junior engineers, reviewing front-end code, enhancing application appearance and functionality, and optimizing web design for mobile devices. I also created work breakdown structures for clients, wrote efficient and testable code, and ensured brand consistency throughout the design.
+
+In addition, I cultivated engineering best practices within the web group and the company as a whole, estimated time requirements for detailed insight reports, and conducted unit and integration testing on software. I was responsible for giving UX/UI based on client requirement documents and worked closely with backend developers and business analysts.
+
+Other duties included continuous integration and continuous delivery pipeline, problem-solving activities within a team, and staying up-to-date with emerging technologies. My work also required proficiency in using GitHub and GitLab, and a working knowledge of Agile/Scrum.
+
+Overall, I played a critical role in designing, developing, and maintaining complex software systems using ReactJS, ElectronJS, and React Native, and collaborating with technical leaders, junior engineers, and other stakeholders to ensure the highest quality results.

@@ -4,15 +4,19 @@ import { useTranslation } from "react-i18next";
 import humanizeDuration from "humanize-duration";
 
 import Avatar from "@mui/material/Avatar";
+import Chip from "@mui/material/Chip";
 import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import Shimmer from "./Shimmer";
-import MD from "./MD";
+import Md from "@src/sections/Experience/Md";
+import ReadMore from "@src/components/ReadMore";
+import Shimmer from "@src/sections/Experience/Shimmer";
 
-import { getExperience } from "../../redux/reducers/experience/actions";
-import { experienceData, experienceLoader } from "../../redux/reducers/experience/selectors";
-import { durationInMilliseconds, toDuration } from "../../utils";
+import { getExperience } from "@src/redux/reducers/experience/actions";
+import { experienceData, experienceLoader } from "@src/redux/reducers/experience/selectors";
+
+import { durationInMilliseconds, toDuration } from "@src/utils";
 
 export default function Expertise() {
   const dispatch = useDispatch();
@@ -53,7 +57,14 @@ export default function Expertise() {
               <Typography>{data?.company_name}</Typography>
               <Typography>{toDuration(data?.start_date, data?.end_date)}</Typography>
               <Typography>{[data?.start_date, "-", data?.end_date].join(" ")}</Typography>
-              <MD id={data?.id} />
+              <ReadMore>
+                <Md id={data?.id} />
+              </ReadMore>
+              <Stack direction="row" spacing={1}>
+                {data?.skills?.sort()?.map((skill) => (
+                  <Chip color="primary" key={skill} label={skill} size="small" />
+                ))}
+              </Stack>
             </div>
           ))}
         </>

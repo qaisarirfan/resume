@@ -1,14 +1,7 @@
-Working for **PROGOS TECH** was another wonderful experience of my career. Learnt Wordpress, Magento and ReactJS Development in detail. It was at **PROGOS TECH** when I was given a chance to manage a project single-handed and prove my management abilities, and I was able to meet the deadline with a very less error rate.
+My time at **Progos Tech** was yet another enriching experience in my career journey. I gained a deep understanding of `WordPress`, `Magento`, and `ReactJS` development, which allowed me to take on a range of tasks with confidence. Notably, I was entrusted with managing a project independently, which provided me with an opportunity to showcase my leadership skills. I delivered the project within the stipulated timeline with minimal errors.
 
-**Responsibilities**:
-- Front End Development, Markups with CSS, CSS, and Markups separately
-- Create quality mock-ups and prototypes on tight timelines.
-- Create cascading style sheets (CSS/CSS3) with/or not JavaScript that are consistent across all browsers and platforms.
-- Collaborate with other team members and stakeholders.
-- Optimize web-application for maximum speed and scalability.
-- Ensure the technical feasibility of UI/UX style.
-- Build reusable code and libraries for future use.
-- Stay up-to-date on emerging technologies.
-- Develop new user-facing features.
-- Single page web apps, JavaScript template's
-- AJAX request/response and manipulate data to Markup
+My core responsibilities at **Progos Tech** included front-end development, creating CSS and CSS3 style sheets that were consistent across all browsers and platforms, and developing hybrid mobile and TV apps using JavaScript and JQuery. To ensure responsive design for mobile devices, I utilized the Bootstrap framework.
+
+In addition to this, I also contributed to creating quality mock-ups and prototypes on tight timelines, optimizing web applications for maximum speed and scalability, and building reusable code and libraries for future use in JavaScript and JQuery. To stay ahead of emerging technologies, I remained up-to-date on the latest developments in the field.
+
+My expertise in single-page web apps, JavaScript templating, AJAX request/response, and manipulating data to Markup, among other skills, allowed me to effectively develop new user-facing features and contribute to the success of the projects I worked on.

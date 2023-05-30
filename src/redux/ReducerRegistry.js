@@ -1,5 +1,7 @@
-// This class holds our active reducers.
-// When a reducer is imported somewhere in code it gets automatically added to the store.
+/*
+ * This class holds our active reducers.
+ * When a reducer is imported somewhere in code it gets automatically added to the store.
+ */
 
 export class ReducerRegistry {
   constructor() {

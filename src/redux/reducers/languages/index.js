@@ -1,6 +1,6 @@
-import { changeLanguage } from "../../../config/i18n";
-import { createActionName, createReducer } from "../../utility";
-import { REDUCERS } from "..";
+import { changeLanguage } from "@src/config/i18n";
+import { createActionName, createReducer } from "@src/redux/utility";
+import { REDUCERS } from "@src/redux/reducers";
 
 const initialState = {
   appLanguage: "en",
@@ -8,13 +8,13 @@ const initialState = {
 
 export const SET_APP_LANGUAGE = createActionName(REDUCERS.LANGUAGES, "SET_APP_LANGUAGE");
 
-export function setAppLanguageAction(code) {
+export const setAppLanguageAction = (code) => {
   changeLanguage(code);
   return {
-    type: SET_APP_LANGUAGE,
     payload: code,
+    type: SET_APP_LANGUAGE,
   };
-}
+};
 
 export const selectAppLanguage = (state) => state[REDUCERS.LANGUAGES]?.appLanguage;
 

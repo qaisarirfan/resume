@@ -19,7 +19,7 @@ class ActionListener {
   }
 
   subscribe(type, next) {
-    this.handlers.push({ type, next });
+    this.handlers.push({ next, type });
   }
 
   reset() {

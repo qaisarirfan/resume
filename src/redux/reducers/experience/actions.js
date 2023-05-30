@@ -1,11 +1,8 @@
-import { EXPERIENCE } from "./types";
+import { EXPERIENCE } from "@src/redux/reducers/experience/types";
 
-export function getExperience() {
+export const getExperience = () => {
   return {
+    request: { method: "get", url: "experience.json" },
     type: EXPERIENCE,
-    request: {
-      method: "get",
-      url: "experience.json",
-    },
   };
-}
+};
