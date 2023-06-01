@@ -7,9 +7,9 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Typography from "@mui/material/Typography";
 
-import { selectAppLanguage, setAppLanguageAction } from "@src/redux/reducers/languages";
+import { selectAppLanguage, setAppLanguageAction } from "../../redux/reducers/languages";
 
-import constants from "@src/utils/constants";
+import constants from "../../utils/constants";
 
 const { languages } = constants;
 

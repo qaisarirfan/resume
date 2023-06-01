@@ -1,6 +1,6 @@
-import { createActionName, createReducer } from "@src/redux/utility";
-import { ERROR, LOADED, LOADING } from "@src/redux/middleware/actions";
-import { REDUCERS } from "@src/redux/reducers";
+import { createActionName, createReducer } from "../../utility";
+import { ERROR, LOADED, LOADING } from "../../middleware/actions";
+import { REDUCERS } from "..";
 
 const initialState = {
   data: [],

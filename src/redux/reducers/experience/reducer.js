@@ -1,6 +1,6 @@
-import { createReducer } from "@src/redux/utility";
-import { ERROR, LOADED, LOADING } from "@src/redux/middleware/actions";
-import { EXPERIENCE } from "@src/redux/reducers/experience/types";
+import { createReducer } from "../../utility";
+import { ERROR, LOADED, LOADING } from "../../middleware/actions";
+import { EXPERIENCE } from "./types";
 
 const initialState = {
   data: [],

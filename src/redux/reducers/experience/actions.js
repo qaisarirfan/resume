@@ -1,4 +1,4 @@
-import { EXPERIENCE } from "@src/redux/reducers/experience/types";
+import { EXPERIENCE } from "./types";
 
 export const getExperience = () => {
   return {

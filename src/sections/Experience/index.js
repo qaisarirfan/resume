@@ -9,14 +9,14 @@ import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import Md from "@src/sections/Experience/Md";
-import ReadMore from "@src/components/ReadMore";
-import Shimmer from "@src/sections/Experience/Shimmer";
+import Md from "./Md";
+import ReadMore from "../../components/ReadMore";
+import Shimmer from "./Shimmer";
 
-import { getExperience } from "@src/redux/reducers/experience/actions";
-import { experienceData, experienceLoader } from "@src/redux/reducers/experience/selectors";
+import { getExperience } from "../../redux/reducers/experience/actions";
+import { experienceData, experienceLoader } from "../../redux/reducers/experience/selectors";
 
-import { durationInMilliseconds, toDuration } from "@src/utils";
+import { durationInMilliseconds, toDuration } from "../../utils";
 
 export default function Expertise() {
   const dispatch = useDispatch();

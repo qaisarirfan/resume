@@ -4,9 +4,9 @@ import Head from "next/head";
 
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import Experience from "@src/sections/Experience";
-import HomeSection from "@src/sections/Home";
-import Panel from "@src/sections/Panel";
+import Experience from "../src/sections/Experience";
+import HomeSection from "../src/sections/Home";
+import Panel from "../src/sections/Panel";
 
 export default function Home() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");

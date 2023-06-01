@@ -1,6 +1,6 @@
-import { changeLanguage } from "@src/config/i18n";
-import { createActionName, createReducer } from "@src/redux/utility";
-import { REDUCERS } from "@src/redux/reducers";
+import { changeLanguage } from "../../../config/i18n";
+import { createActionName, createReducer } from "../../utility";
+import { REDUCERS } from "..";
 
 const initialState = {
   appLanguage: "en",

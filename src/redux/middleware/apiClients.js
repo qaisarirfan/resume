@@ -1,4 +1,4 @@
-import { ERROR, LOADED, LOADING } from "@src/redux/middleware/actions";
+import { ERROR, LOADED, LOADING } from "./actions";
 
 export default (clients) => (store) => (next) => (action) => {
   if (!action || !action.request) {

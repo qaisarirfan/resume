@@ -8,7 +8,7 @@ import SettingsIcon from "@mui/icons-material/SettingsOutlined";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 
-import AppSettingsDrawer from "@src/components/AppSettingsDrawer";
+import AppSettingsDrawer from "../AppSettingsDrawer";
 
 export default function PrimarySearchAppBar() {
   const [settingsOpen, setSettingsOpen] = React.useState(false);

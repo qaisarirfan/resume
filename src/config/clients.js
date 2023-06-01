@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import constants from "@src/utils/constants";
+import constants from "../utils/constants";
 
 export const configureClients = ({ baseURL, apiURL, googleMapsURL }) => ({
   api: {

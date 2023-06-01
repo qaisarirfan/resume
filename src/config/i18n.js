@@ -2,8 +2,8 @@ import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 
-import en from "@public/i18n/en/translation.json";
-import ur from "@public/i18n/ur/translation.json";
+import en from "../../public/i18n/en/translation.json";
+import ur from "../../public/i18n/ur/translation.json";
 
 const resources = {
   en: { translation: en },

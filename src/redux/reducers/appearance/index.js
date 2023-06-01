@@ -1,5 +1,5 @@
-import { createActionName, createReducer } from "@src/redux/utility";
-import { REDUCERS } from "@src/redux/reducers";
+import { createActionName, createReducer } from "../../utility";
+import { REDUCERS } from "..";
 
 const initialState = {
   mode: "light",

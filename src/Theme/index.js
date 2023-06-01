@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import { selectAppLanguage } from "@src/redux/reducers/languages";
+import { selectAppLanguage } from "../redux/reducers/languages";
 
-import constants from "@src/utils/constants";
+import constants from "../utils/constants";
 
 export default function Theme({ children }) {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");

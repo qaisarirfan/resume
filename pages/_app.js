@@ -6,10 +6,10 @@ import PropTypes from "prop-types";
 
 import CssBaseline from "@mui/material/CssBaseline";
 
-import Theme from "@src/Theme";
+import Theme from "../src/Theme";
 
-import configureI18n from "@src/config/i18n";
-import configureStore from "@src/redux/configureStore";
+import configureI18n from "../src/config/i18n";
+import configureStore from "../src/redux/configureStore";
 
 let initialState = {};
 if (typeof window !== "undefined") {

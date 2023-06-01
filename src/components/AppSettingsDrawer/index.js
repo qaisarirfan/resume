@@ -9,8 +9,8 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 
-import Appearance from "@src/features/Appearance";
-import LanguageSwitcher from "@src/features//LanguageSwitcher";
+import Appearance from "../../features/Appearance";
+import LanguageSwitcher from "../../features//LanguageSwitcher";
 
 export default function AppSettingsDrawer({ onClose, open }) {
   const { t } = useTranslation();

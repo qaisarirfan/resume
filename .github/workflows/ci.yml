@@ -13,9 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Build Project
 
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x, 20.x]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -29,7 +26,6 @@ jobs:
         run: npm run lint
       - name: Build assets
         run: npm run build
-        working-directory: ${{ github.workspace }}
       - name: Upload assets
         uses: actions/upload-artifact@v3
         with:

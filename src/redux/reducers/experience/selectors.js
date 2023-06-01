@@ -1,4 +1,4 @@
-import { REDUCERS } from "@src/redux/reducers";
+import { REDUCERS } from "..";
 
 export const experienceData = (state) => state[REDUCERS.EXPERIENCE]?.data;
 export const experienceLoader = (state) => state[REDUCERS.EXPERIENCE]?.isLoading;
