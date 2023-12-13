@@ -1,68 +1,68 @@
 [
-  {
-    "city": "Lahore",
-    "company_logo": "./images/arbisoft.jpg",
-    "company_name": "Arbisoft",
-    "description": "",
-    "end_date": "",
-    "id": "arbisoft",
-    "job_title": "Senior Software Engineer - ReactJS/React Native",
-    "order": 3,
-    "start_date": "01 Dec 2020"
-  },
-  {
-    "city": "Islamabad",
-    "company_logo": "./images/arkhitech.jpg",
-    "company_name": "Arkhitech",
-    "description": "",
-    "end_date": "30 Nov 2020",
-    "id": "arkhitech",
-    "job_title": "Senior Software Engineer - ReactJS",
-    "order": 2,
-    "start_date": "08 Oct 2018"
-  },
-  {
-    "city": "Islamabad",
-    "company_logo": "./images/progos.jpg",
-    "company_name": "PROGOS TECH (Pvt) Ltd.",
-    "description": "",
-    "end_date": "05 Oct 2018",
-    "id": "progos",
-    "job_title": "Frontend Developer",
-    "order": 1,
-    "start_date": "01 May 2014",
-    "skills": [
-      "Cross-browser Compatibility",
-      "jQuery",
-      "CSS",
-      "Responsive Web Design",
-      "WordPress",
-      "PHP",
-      "Bootstrap",
-      "AJAX",
-      "Magento",
-      "HTML",
-      "JavaScript"
-    ]
-  },
-  {
-    "city": "Sargodha",
-    "company_logo": "",
-    "company_name": "Softiks",
-    "description": "",
-    "end_date": "31 Jan 2014",
-    "id": "softiks",
-    "job_title": "Frontend Web Developer",
-    "order": 0,
-    "start_date": "01 Jan 2011",
-    "skills": [
-      "Cross-browser Compatibility",
-      "jQuery",
-      "CSS",
-      "PHP",
-      "Bootstrap",
-      "HTML",
-      "JavaScript"
-    ]
-  }
+	{
+		"city": "Lahore",
+		"company_logo": "./images/arbisoft.jpg",
+		"company_name": "Arbisoft",
+		"description": "",
+		"end_date": "",
+		"id": "arbisoft",
+		"job_title": "Senior Software Engineer - ReactJS/React Native",
+		"order": 3,
+		"start_date": "01 Dec 2020"
+	},
+	{
+		"city": "Islamabad",
+		"company_logo": "./images/arkhitech.jpg",
+		"company_name": "Arkhitech",
+		"description": "",
+		"end_date": "30 Nov 2020",
+		"id": "arkhitech",
+		"job_title": "Senior Software Engineer - ReactJS",
+		"order": 2,
+		"start_date": "08 Oct 2018"
+	},
+	{
+		"city": "Islamabad",
+		"company_logo": "./images/progos.jpg",
+		"company_name": "PROGOS TECH (Pvt) Ltd.",
+		"description": "",
+		"end_date": "05 Oct 2018",
+		"id": "progos",
+		"job_title": "Frontend Developer",
+		"order": 1,
+		"start_date": "01 May 2014",
+		"skills": [
+			"Cross-browser Compatibility",
+			"jQuery",
+			"CSS",
+			"Responsive Web Design",
+			"WordPress",
+			"PHP",
+			"Bootstrap",
+			"AJAX",
+			"Magento",
+			"HTML",
+			"JavaScript"
+		]
+	},
+	{
+		"city": "Sargodha",
+		"company_logo": "",
+		"company_name": "Softiks",
+		"description": "",
+		"end_date": "31 Jan 2014",
+		"id": "softiks",
+		"job_title": "Frontend Web Developer",
+		"order": 0,
+		"start_date": "01 Jan 2011",
+		"skills": [
+			"Cross-browser Compatibility",
+			"jQuery",
+			"CSS",
+			"PHP",
+			"Bootstrap",
+			"HTML",
+			"JavaScript"
+		]
+	}
 ]

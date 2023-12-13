@@ -1,0 +1,9 @@
+{
+	"recommendations": [
+		"biomejs.biome",
+		"wmaurer.change-case",
+		"streetsidesoftware.code-spell-checker",
+		"christopherstyles.html-entities",
+		"shardulm94.trailing-spaces"
+	]
+}

@@ -1,13 +1,13 @@
 {
-    "editor.tabSize": 2,
-    "editor.wordWrapColumn": 100,
-    "eslint.format.enable": true,
-    "eslint.run": "onSave",
-    "editor.formatOnSave": true,
-    "[javascript]": {
-        "editor.formatOnSave": false
-    },
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
+	"editor.tabSize": 2,
+	"editor.wordWrapColumn": 100,
+	"editor.formatOnSave": true,
+	"[javascript]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"editor.codeActionsOnSave": {
+		"quickfix.biome": "always",
+		"source.organizeImports.biome": true
+	}
 }

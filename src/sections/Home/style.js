@@ -1,8 +1,8 @@
-import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import { styled } from "@mui/material/styles";
 
 export const Main = styled("main")(() => ({
-  display: "flex",
+	display: "flex",
 }));
 
 export const StyledTypography = styled(Typography)(() => ({}));
